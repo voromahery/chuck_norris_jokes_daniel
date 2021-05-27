@@ -1,17 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from '../../GlobalContext'
 
 const Form = () => {
+  const { fetchJoke, firstName, lastName } = useContext(Context)
   return (
-    <form>
+    <div>
       <select>
         <option>HI</option>
       </select>
       <div>
-        <span>Impersonate ???</span>
+        <span>
+          Impersonate {firstName} {lastName}
+        </span>
         <input type='text' />
       </div>
-      <button>Draw a random ???? Joke</button>
-    </form>
+      <button onClick={fetchJoke}>
+        Draw a random {firstName} {lastName} Joke
+      </button>
+    </div>
   )
 }
 

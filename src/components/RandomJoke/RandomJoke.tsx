@@ -3,7 +3,7 @@ import { Context } from '../../GlobalContext'
 
 const RandomJoke = () => {
   const { jokeData } = useContext(Context)
-  return <p>{jokeData.joke}</p>
+  return <q>{jokeData.joke}</q>
 }
 
 export default RandomJoke

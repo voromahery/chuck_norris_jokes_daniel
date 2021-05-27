@@ -3,11 +3,21 @@ import React, { createContext, useReducer, useEffect, useState } from 'react'
 type State = {
   jokeData: any
   dispatch: React.Dispatch<any>
+  firstName: string
+  lastName: string
+  setFirstName: any
+  setLastName: any
+  fetchJoke: any
 }
 
 let initialState: State = {
   jokeData: {},
   dispatch: () => null,
+  firstName: '',
+  lastName: '',
+  setFirstName: () => null,
+  setLastName: () => null,
+  fetchJoke: () => null,
 }
 
 type JokeProperties = {
@@ -54,7 +64,16 @@ const GlobalContext: React.FC = ({ children }) => {
   }, [])
 
   return (
-    <Context.Provider value={{ jokeData: state.jokeData, dispatch }}>
+    <Context.Provider
+      value={{
+        jokeData: state.jokeData,
+        dispatch,
+        firstName,
+        lastName,
+        setFirstName,
+        setLastName,
+        fetchJoke,
+      }}>
       {children}
     </Context.Provider>
   )
