@@ -1,8 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Context } from '../../GlobalContext'
 
 const Form = () => {
-  const { fetchJoke, firstName, lastName } = useContext(Context)
+  const { fetchJoke, firstName, lastName, setFirstName, setLastName } =
+    useContext(Context)
+  const [changingName, setChangingName] = useState(`${firstName} ${lastName}`)
+
+  const getRandomJoke = () => {
+    fetchJoke()
+    setFirstName(changingName)
+  }
   return (
     <div>
       <select>
@@ -12,11 +19,15 @@ const Form = () => {
         <span>
           Impersonate {firstName} {lastName}
         </span>
-        <input type='text' />
+        <input
+          type='text'
+          value={changingName}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setChangingName(e.target.value)
+          }
+        />
       </div>
-      <button onClick={fetchJoke}>
-        Draw a random {firstName} {lastName} Joke
-      </button>
+      <button onClick={getRandomJoke}>Draw a random {changingName} Joke</button>
     </div>
   )
 }

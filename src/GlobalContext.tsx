@@ -62,7 +62,7 @@ const GlobalContext: React.FC = ({ children }) => {
   const [lastName, setLastName] = useState('Norris')
   const jokeUrl = `http://api.icndb.com/jokes/random?firstName=${firstName}&lastName=${lastName}`
 
-  async function fetchJoke() {
+  const fetchJoke = async () => {
     let isLoading = true
     dispatch({ type: 'LOADING' })
     const getJoke = await fetch(jokeUrl)
@@ -73,7 +73,7 @@ const GlobalContext: React.FC = ({ children }) => {
 
   useEffect(() => {
     fetchJoke()
-  }, [])
+  }, [firstName, lastName])
 
   return (
     <Context.Provider
