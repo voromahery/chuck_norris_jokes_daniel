@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from '../../GlobalContext'
 
 const RandomJoke = () => {
-  return <p>jhkhj</p>
+  const { jokeData } = useContext(Context)
+  return <p>{jokeData.joke}</p>
 }
 
 export default RandomJoke
