@@ -1,6 +1,7 @@
 import React, { createContext, useReducer, useEffect, useState } from 'react'
 
 type State = {
+  isLoading: boolean
   jokeData: any
   dispatch: React.Dispatch<any>
   firstName: string
@@ -11,6 +12,7 @@ type State = {
 }
 
 let initialState: State = {
+  isLoading: true,
   jokeData: {},
   dispatch: () => null,
   firstName: '',
@@ -29,13 +31,21 @@ type JokeProperties = {
   }
 }
 
-type Action = { type: 'RESOLVED'; payload: JokeProperties }
+type Action =
+  | { type: 'RESOLVED'; payload: JokeProperties }
+  | { type: 'LOADING' }
 
 function reducer(state: State = initialState, action: Action) {
   switch (action.type) {
+    case 'LOADING':
+      return {
+        ...state,
+        isLoading: true,
+      }
     case 'RESOLVED':
       return {
         ...state,
+        isLoading: false,
         jokeData: action.payload,
       }
 
@@ -53,10 +63,12 @@ const GlobalContext: React.FC = ({ children }) => {
   const jokeUrl = `http://api.icndb.com/jokes/random?firstName=${firstName}&lastName=${lastName}`
 
   async function fetchJoke() {
+    let isLoading = true
+    dispatch({ type: 'LOADING' })
     const getJoke = await fetch(jokeUrl)
     const data = await getJoke.json()
-
     dispatch({ type: 'RESOLVED', payload: data.value })
+    return (isLoading = false)
   }
 
   useEffect(() => {
@@ -66,6 +78,7 @@ const GlobalContext: React.FC = ({ children }) => {
   return (
     <Context.Provider
       value={{
+        isLoading: state.isLoading,
         jokeData: state.jokeData,
         dispatch,
         firstName,
