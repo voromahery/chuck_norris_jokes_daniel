@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from '../../GlobalContext'
+import chuckNorrisPhoto from '../../assets/chuck-norris-photo.png'
+import randomPhoto from '../../assets/random-photo.png'
 
 const Image = () => {
-  return <img src='' alt='' />
+  const { firstName, lastName } = useContext(Context)
+  const imageToDisplay = firstName === 'Chuck' ? chuckNorrisPhoto : randomPhoto
+  return <img src={imageToDisplay} alt={`${firstName} ${lastName}`} />
 }
 
 export default Image
