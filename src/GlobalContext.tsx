@@ -1,3 +1,4 @@
+import { stat } from 'fs'
 import React, { createContext, useReducer, useEffect, useState } from 'react'
 
 type State = {
@@ -6,9 +7,11 @@ type State = {
   dispatch: React.Dispatch<any>
   firstName: string
   lastName: string
-  setFirstName: any
-  setLastName: any
+  setFirstName: React.Dispatch<React.SetStateAction<string>>
+  setLastName: React.Dispatch<React.SetStateAction<string>>
   fetchJoke: any
+  category: string
+  setCategory: React.Dispatch<React.SetStateAction<string>>
 }
 
 let initialState: State = {
@@ -20,6 +23,8 @@ let initialState: State = {
   setFirstName: () => null,
   setLastName: () => null,
   fetchJoke: () => null,
+  category: '',
+  setCategory: () => null,
 }
 
 type JokeProperties = {
@@ -58,9 +63,10 @@ const Context = createContext(initialState)
 
 const GlobalContext: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
+  const [category, setCategory] = useState('')
   const [firstName, setFirstName] = useState('Chuck')
   const [lastName, setLastName] = useState('Norris')
-  const jokeUrl = `http://api.icndb.com/jokes/random?firstName=${firstName}&lastName=${lastName}`
+  const jokeUrl = `http://api.icndb.com/jokes/random?firstName=${firstName}&lastName=${lastName}&${category}`
 
   const fetchJoke = async () => {
     let isLoading = true
@@ -70,7 +76,7 @@ const GlobalContext: React.FC = ({ children }) => {
     dispatch({ type: 'RESOLVED', payload: data.value })
     return (isLoading = false)
   }
-
+  console.log(state.jokeData.categories)
   useEffect(() => {
     fetchJoke()
   }, [firstName, lastName])
@@ -86,6 +92,8 @@ const GlobalContext: React.FC = ({ children }) => {
         setFirstName,
         setLastName,
         fetchJoke,
+        category,
+        setCategory,
       }}>
       {children}
     </Context.Provider>
