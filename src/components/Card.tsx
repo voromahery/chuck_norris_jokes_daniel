@@ -6,11 +6,13 @@ import NumberOfJokes from './NumberOfJokes'
 
 const Card = () => {
   return (
-    <div>
-      <Image />
-      <RandomJoke />
-      <Form />
-      <NumberOfJokes />
+    <div className='card'>
+      <div className='wrapper'>
+        <Image />
+        <RandomJoke />
+        <Form />
+        <NumberOfJokes />
+      </div>
     </div>
   )
 }

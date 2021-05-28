@@ -1,3 +1,51 @@
+.App {
+  background-color: #f9f9f9;
+  /* height: 100vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+q {
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: italic;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #34394f;
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+
+img {
+  width: 100%;
+  max-width: 439px;
+}
+
 .error {
   background-color: #f39a9a;
+}
+
+.card,
+.wrapper {
+  margin: auto;
+}
+
+.card {
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.08);
+  max-width: 555px;
+  border-radius: 20px;
+  padding-top: 48px;
+  padding-left: 58px;
+  padding-right: 58px;
+  padding-bottom: 72px;
+}
+
+.wrapper {
+  max-width: 439px;
 }

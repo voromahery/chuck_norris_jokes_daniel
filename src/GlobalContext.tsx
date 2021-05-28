@@ -24,15 +24,6 @@ let initialState: JokeState = {
   setCategory: () => null,
 }
 
-interface JokeProperties {
-  type: string
-  value: {
-    id: number
-    joke: string
-    categories: string[]
-  }
-}
-
 const Context = createContext(initialState)
 
 const GlobalContext: React.FC = ({ children }) => {

@@ -11,6 +11,7 @@ const NumberOfJokes = () => {
   }
 
   const decrement = () => {
+    // Limit the number into 0
     if (counter > 0) {
       setCounter(counter - 1)
     } else {
@@ -68,7 +69,9 @@ const NumberOfJokes = () => {
         />
         <button onClick={increment}>+</button>
       </div>
-      <button onClick={saveFile}>Save Jokes</button>
+      <button onClick={saveFile} disabled={counter === 0}>
+        Save Jokes
+      </button>
     </div>
   )
 }
