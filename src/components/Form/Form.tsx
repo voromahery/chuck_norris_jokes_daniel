@@ -8,12 +8,15 @@ const Form = () => {
 
   const getRandomJoke = () => {
     fetchJoke()
-    setFirstName(changingName)
+    let name = changingName.split(' ')
+    setFirstName(name[0])
+    setLastName(name[1])
   }
   return (
     <div>
       <select>
-        <option>HI</option>
+        <option>Explicit</option>
+        <option>Nerdy</option>
       </select>
       <div>
         <span>
