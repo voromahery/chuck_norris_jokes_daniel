@@ -1,8 +1,8 @@
 import React from 'react'
-import Form from '../Form/Form'
-import RandomJoke from '../RandomJoke/RandomJoke'
-import Image from '../Image/Image'
-import NumberOfJokes from '../NumberOfJokes/NumberOfJokes'
+import Form from './Form'
+import RandomJoke from './RandomJoke'
+import Image from './Image'
+import NumberOfJokes from './NumberOfJokes'
 
 const Card = () => {
   return (

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Context } from '../../GlobalContext'
+import { Context } from '../GlobalContext'
 
 const RandomJoke = () => {
   const { jokeData, isLoading } = useContext(Context)

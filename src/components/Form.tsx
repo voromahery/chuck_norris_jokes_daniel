@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Context } from '../../GlobalContext'
+import { Context } from '../GlobalContext'
 
 const Form = () => {
   const {
