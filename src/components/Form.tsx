@@ -17,8 +17,14 @@ const Form = () => {
   const getRandomJoke = () => {
     fetchJoke()
     let name = changingName.split(' ')
-    setFirstName(name[0])
-    setLastName(name[1])
+    if (name.length === 2) {
+      setFirstName(name[0])
+      setLastName(name[1])
+    }
+    if (name.length === 1) {
+      setFirstName(name[0])
+      setLastName('')
+    }
   }
 
   const fetchingCategory = async () => {
