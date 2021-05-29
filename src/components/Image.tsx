@@ -6,7 +6,13 @@ import randomPhoto from '../assets/random-photo.png'
 const Image = () => {
   const { firstName, lastName } = useContext(Context)
   const imageToDisplay = firstName === 'Chuck' ? chuckNorrisPhoto : randomPhoto
-  return <img src={imageToDisplay} alt={`${firstName} ${lastName}`} />
+  return (
+    <img
+      style={{ display: 'none' }}
+      src={imageToDisplay}
+      alt={`${firstName} ${lastName}`}
+    />
+  )
 }
 
 export default Image

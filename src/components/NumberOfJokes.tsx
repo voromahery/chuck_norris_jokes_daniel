@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { Context } from '../GlobalContext'
 
 const NumberOfJokes = () => {
+  const { firstName, lastName, category } = useContext(Context)
   const [counter, setCounter] = useState(0)
   const [jokeToPrint, setJokeToPrint] = useState([])
 
-  const multipleJokeUrl = `http://api.icndb.com/jokes/random/${counter}`
+  const multipleJokeUrl = `http://api.icndb.com/jokes/random/${counter}?firstName=${firstName}&lastName=${lastName}&${category}`
 
   const increment = () => {
     setCounter(counter + 1)
@@ -27,7 +29,9 @@ const NumberOfJokes = () => {
 
   useEffect(() => {
     saveMultipleJoke()
-  }, [counter])
+  }, [counter, firstName, lastName])
+
+  console.log(jokeToPrint)
 
   let saveFile = () => {
     saveMultipleJoke()
