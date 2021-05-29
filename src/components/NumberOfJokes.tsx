@@ -31,8 +31,6 @@ const NumberOfJokes = () => {
     saveMultipleJoke()
   }, [counter, firstName, lastName])
 
-  console.log(jokeToPrint)
-
   let saveFile = () => {
     saveMultipleJoke()
 

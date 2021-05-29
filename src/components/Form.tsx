@@ -46,8 +46,8 @@ const Form = () => {
   }, [])
 
   return (
-    <div>
-      <select onChange={selectCategory}>
+    <div className='form__wrapper'>
+      <select className='joke__category' onChange={selectCategory}>
         <option value=''>Select category</option>
         {categoryList.map((category) => (
           <option value={category} key={category}>
@@ -55,13 +55,20 @@ const Form = () => {
           </option>
         ))}
       </select>
-      <div>
-        <span>
+      <div className='input__wrapper'>
+        <span className='impersonating__text'>
           Impersonate {firstName} {lastName}
         </span>
-        <input type='text' value={changingName} onChange={renaming} />
+        <input
+          type='text'
+          className='renaming__input'
+          value={changingName}
+          onChange={renaming}
+        />
       </div>
-      <button onClick={getRandomJoke}>Draw a random {changingName} Joke</button>
+      <button className='draw__joke--button' onClick={getRandomJoke}>
+        Draw a random {changingName} Joke
+      </button>
     </div>
   )
 }
