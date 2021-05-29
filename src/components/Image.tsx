@@ -8,7 +8,7 @@ const Image = () => {
   const imageToDisplay = firstName === 'Chuck' ? chuckNorrisPhoto : randomPhoto
   return (
     <img
-      style={{ display: 'none' }}
+      className='character__image'
       src={imageToDisplay}
       alt={`${firstName} ${lastName}`}
     />

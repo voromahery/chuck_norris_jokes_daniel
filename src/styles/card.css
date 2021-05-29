@@ -1,3 +1,7 @@
+.character__image {
+  margin-bottom: 24px;
+}
+
 .card,
 .wrapper {
   margin: auto;

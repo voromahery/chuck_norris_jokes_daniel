@@ -23,8 +23,7 @@ body {
   text-align: left;
 }
 
-q {
-  font-family: Inter;
+.joke {
   font-size: 18px;
   font-weight: 600;
   font-stretch: normal;

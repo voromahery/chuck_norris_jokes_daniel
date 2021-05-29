@@ -60,18 +60,26 @@ const NumberOfJokes = () => {
   }
 
   return (
-    <div>
-      <div className={counter > 100 ? 'error' : 'counters-container'}>
-        <button onClick={decrement}>-</button>
+    <div className='printer__wrapper'>
+      <div className={counter > 100 ? 'error' : 'counters__container'}>
+        <button className='counter__button decrement' onClick={decrement}>
+          -
+        </button>
         <input
           type='number'
           name='jokeNumber'
+          className='joke__number--input'
           onChange={(e: any) => setCounter(Number(e.target.value))}
           value={Number(counter)}
         />
-        <button onClick={increment}>+</button>
+        <button className='counter__button increment' onClick={increment}>
+          +
+        </button>
       </div>
-      <button onClick={saveFile} disabled={counter === 0}>
+      <button
+        className='save__button'
+        onClick={saveFile}
+        disabled={counter === 0}>
         Save Jokes
       </button>
     </div>

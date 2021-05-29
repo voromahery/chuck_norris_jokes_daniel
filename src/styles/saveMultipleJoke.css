@@ -1,0 +1,67 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.printer__wrapper,
+.counters__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.printer__wrapper {
+  flex-wrap: wrap;
+}
+
+.save__button,
+.joke__number--input,
+.counter__button {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.save__button,
+.printer__wrapper {
+  width: 100%;
+}
+
+.save__button {
+  flex-basis: 66.75;
+}
+
+.counters__container {
+  flex-basis: 33.25%;
+  margin-right: 8px;
+}
+
+.save__button,
+.save__button:disabled,
+.joke__number--input,
+.counter__button {
+  opacity: 1;
+  color: #34394f;
+  background-color: #f5f6f8;
+  border-radius: 6px;
+  text-align: center;
+  border: none;
+}
+
+.save__button {
+  font-weight: 500;
+}
+
+.joke__number--input {
+  font-weight: 400;
+}
+
+@media (min-width: 357px) {
+  .printer__wrapper {
+    flex-wrap: nowrap;
+  }
+}
