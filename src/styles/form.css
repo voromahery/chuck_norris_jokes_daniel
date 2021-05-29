@@ -1,0 +1,51 @@
+.form__wrapper {
+  display: grid;
+  grid-gap: 16px;
+  margin-top: 57px;
+  margin-bottom: 52px;
+}
+
+.form__wrapper * {
+  font-size: 16px;
+  line-height: 1.63;
+  letter-spacing: -0.52px;
+  text-align: left;
+  color: #34394f;
+}
+
+.impersonating__text {
+  font-size: 12px;
+  line-height: 2.17;
+  color: #c4c4c4;
+}
+
+.input__wrapper,
+.joke__category,
+.draw__joke--button {
+  border-radius: 6px;
+  border: solid 2px #34394f;
+}
+
+.input__wrapper,
+.joke__category {
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: #ffffff;
+  height: 58px;
+}
+
+.renaming__input {
+  border: none;
+}
+
+.draw__joke--button {
+  margin-top: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+  background-color: #34394f;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
