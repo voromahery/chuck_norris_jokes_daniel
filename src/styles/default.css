@@ -16,6 +16,13 @@ body {
   height: 100vh;
 }
 
+.card * {
+  font-size: 16px;
+  line-height: 1.63;
+  letter-spacing: -0.52px;
+  text-align: left;
+}
+
 q {
   font-family: Inter;
   font-size: 18px;
