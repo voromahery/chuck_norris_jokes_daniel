@@ -41,6 +41,7 @@ const GlobalContext: React.FC = ({ children }) => {
     setJokeData(data.value)
     setIsLoading(false)
   }
+
   useEffect(() => {
     fetchJoke()
   }, [firstName, lastName])

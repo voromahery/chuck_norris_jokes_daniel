@@ -8,6 +8,22 @@ const NumberOfJokes = () => {
 
   const multipleJokeUrl = `http://api.icndb.com/jokes/random/${counter}?firstName=${firstName}&lastName=${lastName}&${category}`
 
+  // Elements class
+  const counterWrapper =
+    counter > 100 ? 'counters__container error' : 'counters__container'
+
+  const counterInput =
+    counter > 100 ? 'joke__number--input error' : 'joke__number--input'
+
+  let counterButton = ''
+  if (counter > 100) {
+    counterButton = 'counter__button error'
+  } else if (counter === 0) {
+    counterButton = 'counter__button'
+  } else {
+    counterButton = 'counter__button active'
+  }
+
   const increment = () => {
     setCounter(counter + 1)
   }
@@ -61,18 +77,19 @@ const NumberOfJokes = () => {
 
   return (
     <div className='printer__wrapper'>
-      <div className={counter > 100 ? 'error' : 'counters__container'}>
-        <button className='counter__button decrement' onClick={decrement}>
+      <div className={counterWrapper}>
+        <button className={counterButton} onClick={decrement}>
           -
         </button>
         <input
           type='number'
           name='jokeNumber'
-          className='joke__number--input'
+          min='0'
+          className={counterInput}
           onChange={(e: any) => setCounter(Number(e.target.value))}
           value={Number(counter)}
         />
-        <button className='counter__button increment' onClick={increment}>
+        <button className={counterButton} onClick={increment}>
           +
         </button>
       </div>

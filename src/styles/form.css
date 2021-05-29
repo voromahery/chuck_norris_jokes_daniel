@@ -5,6 +5,15 @@
   margin-bottom: 52px;
 }
 
+.input__wrapper,
+.renaming__input,
+.joke__category,
+.draw__joke--button {
+  max-width: 439px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .form__wrapper * {
   color: #34394f;
 }

@@ -1,3 +1,16 @@
+.save__button,
+.save__button:disabled,
+.joke__number--input,
+.counter__button,
+.counters__container {
+  opacity: 1;
+  color: #34394f;
+  background-color: #f5f6f8;
+  border-radius: 6px;
+  text-align: center;
+  border: none;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -7,6 +20,20 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type='number'] {
   -moz-appearance: textfield;
+}
+
+.counter__button {
+  border-radius: 50%;
+  border: solid 2px #34394f;
+  font-size: 16px;
+  font-weight: 500;
+  width: 24px;
+  height: 24px;
+}
+.counter__button,
+.joke__number--input {
+  width: calc(146px / 3);
+  outline: none;
 }
 
 .printer__wrapper,
@@ -40,20 +67,19 @@ input[type='number'] {
   margin-right: 8px;
 }
 
-.save__button,
-.save__button:disabled,
-.joke__number--input,
-.counter__button {
-  opacity: 1;
-  color: #34394f;
-  background-color: #f5f6f8;
-  border-radius: 6px;
-  text-align: center;
+.error {
+  background-color: #f39a9a;
+}
+
+.active {
   border: none;
+  background-color: darkgray;
 }
 
 .save__button {
   font-weight: 500;
+  background-color: #34394f;
+  color: #ffffff;
 }
 
 .joke__number--input {

@@ -36,6 +36,10 @@ body {
   margin-bottom: 32px;
 }
 
+input {
+  outline: none;
+}
+
 img {
   width: 100%;
   max-width: 439px;
@@ -43,8 +47,4 @@ img {
 
 button {
   cursor: pointer;
-}
-
-.error {
-  background-color: #f39a9a;
 }
