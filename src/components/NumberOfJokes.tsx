@@ -83,7 +83,7 @@ const NumberOfJokes = () => {
         </button>
         <input
           type='number'
-          name='jokeNumber'
+          name='jokeCount'
           min='0'
           className={counterInput}
           onChange={(e: any) => setCounter(Number(e.target.value))}
@@ -99,6 +99,9 @@ const NumberOfJokes = () => {
         disabled={counter === 0}>
         Save Jokes
       </button>
+      {counter > 100 && (
+        <p className='error__message'>You can pick a number from 1 to 100.</p>
+      )}
     </div>
   )
 }
