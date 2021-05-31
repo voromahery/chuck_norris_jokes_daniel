@@ -13,6 +13,7 @@ const Form = () => {
   const categoryUrl = `http://api.icndb.com/categories`
   const [changingName, setChangingName] = useState(`${firstName} ${lastName}`)
   const [categoryList, setCategoryList] = useState([])
+  const [openDropDown, setOpenDropDown] = useState(false)
 
   const getRandomJoke = () => {
     fetchJoke()
@@ -33,11 +34,16 @@ const Form = () => {
     setCategoryList(data.value)
   }
 
+  const toggleDropDown = () => {
+    setOpenDropDown(!openDropDown)
+  }
+
   const renaming = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChangingName(e.target.value)
   }
 
   const selectCategory = (e: any) => {
+    toggleDropDown()
     setCategory(e.target.value && `limitTo=[${e.target.value}]`)
   }
 
@@ -45,16 +51,45 @@ const Form = () => {
     fetchingCategory()
   }, [])
 
+  const categoryExample = ['Nerdy', 'Explicit']
+
   return (
     <div className='form__wrapper'>
-      <select className='joke__category' onChange={selectCategory}>
-        <option value=''>Select category</option>
-        {categoryList.map((category) => (
-          <option value={category} key={category}>
-            {category}
-          </option>
-        ))}
-      </select>
+      <div className='customized__select--container'>
+        <div className='custom__select'>
+          <div
+            className={
+              openDropDown
+                ? 'custom__select--trigger open__trigger'
+                : 'custom__select--trigger closed__trigger'
+            }
+            onClick={toggleDropDown}>
+            {!openDropDown ? (
+              <div className='trigger__closed--text'>Categories</div>
+            ) : (
+              <div className='trigger__open--text'>Select category</div>
+            )}
+            <svg viewBox='0 0 1780 1017.4' fill='currentColor'>
+              <path d='M1742.9 37.2l-.3-.3c-49.6-49.4-129.8-49.2-179.2.3L890.5 710.4v.2L216.7 37.4C193 13.9 160.9.7 127.5.6 57.3.4.2 57.2 0 127.5c-.1 33.8 13.2 66.3 37.1 90.2l768 766.3c50.1 45.8 127.3 44.2 175.4-3.7l762.4-763c49.5-49.8 49.5-130.3 0-180.1z'></path>
+            </svg>
+          </div>
+          <ul
+            className={
+              openDropDown ? 'category__list open' : 'category__list closed'
+            }>
+            {categoryExample.map((category) => (
+              <li className='customized__select--option' key={category}>
+                <button
+                  className='list__item'
+                  value={category}
+                  onClick={selectCategory}>
+                  {category}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
       <div className='input__wrapper'>
         <span className='impersonating__text'>
           Impersonate {firstName} {lastName}

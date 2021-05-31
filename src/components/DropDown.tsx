@@ -2,7 +2,7 @@ import React from 'react'
 
 const DropDown = () => {
   return (
-    <div>
+    <div className='customized__select--container'>
       <div className='select__category--wrapper'>
         <label htmlFor='check' className='select__title'>
           Click me

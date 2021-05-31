@@ -7,7 +7,6 @@
 
 .input__wrapper,
 .renaming__input,
-.joke__category,
 .draw__joke--button {
   max-width: 439px;
   overflow: hidden;
@@ -25,14 +24,12 @@
 }
 
 .input__wrapper,
-.joke__category,
 .draw__joke--button {
   border-radius: 6px;
   border: solid 2px #34394f;
 }
 
-.input__wrapper,
-.joke__category {
+.input__wrapper {
   display: flex;
   flex-direction: column;
   padding-left: 16px;
