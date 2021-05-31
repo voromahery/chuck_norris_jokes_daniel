@@ -22,14 +22,23 @@ input[type='number'] {
   -moz-appearance: textfield;
 }
 
+.counters__container {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 .counter__button {
   border-radius: 50%;
-  border: solid 2px #34394f;
+  border: solid 1px #34394f;
   font-size: 16px;
   font-weight: 500;
-  width: 24px;
-  height: 24px;
+  max-width: 24px;
+  max-height: 24px;
+  place-content: center;
 }
+
 .counter__button,
 .joke__number--input {
   width: calc(146px / 3);
@@ -37,6 +46,7 @@ input[type='number'] {
 }
 
 .printer__wrapper,
+.counter__button,
 .counters__container {
   display: flex;
   flex-direction: row;
@@ -46,9 +56,7 @@ input[type='number'] {
   flex-wrap: wrap;
 }
 
-.save__button,
-.joke__number--input,
-.counter__button {
+.save__button {
   padding-top: 15px;
   padding-bottom: 15px;
 }
@@ -75,6 +83,7 @@ input[type='number'] {
 .active {
   border: none;
   background-color: #bdbdbd;
+  font-weight: 800;
 }
 
 .save__button {
