@@ -14,6 +14,7 @@ const Form = () => {
   const [changingName, setChangingName] = useState(`${firstName} ${lastName}`)
   const [categoryList, setCategoryList] = useState([])
   const [openDropDown, setOpenDropDown] = useState(false)
+  const [textToDisplay, setTextToDislay] = useState('Category')
 
   const getRandomJoke = () => {
     fetchJoke()
@@ -45,6 +46,7 @@ const Form = () => {
   const selectCategory = (e: any) => {
     toggleDropDown()
     setCategory(e.target.value && `limitTo=[${e.target.value}]`)
+    setTextToDislay(e.target.value)
   }
 
   useEffect(() => {
@@ -65,9 +67,11 @@ const Form = () => {
             }
             onClick={toggleDropDown}>
             {!openDropDown ? (
-              <div className='trigger__closed--text'>Categories</div>
+              <div className='trigger__closed--text'>{textToDisplay}</div>
             ) : (
-              <div className='trigger__open--text'>Select category</div>
+              <button className='trigger__open--text' value=''>
+                Select category
+              </button>
             )}
             <svg viewBox='0 0 1780 1017.4' fill='currentColor'>
               <path d='M1742.9 37.2l-.3-.3c-49.6-49.4-129.8-49.2-179.2.3L890.5 710.4v.2L216.7 37.4C193 13.9 160.9.7 127.5.6 57.3.4.2 57.2 0 127.5c-.1 33.8 13.2 66.3 37.1 90.2l768 766.3c50.1 45.8 127.3 44.2 175.4-3.7l762.4-763c49.5-49.8 49.5-130.3 0-180.1z'></path>
@@ -80,7 +84,7 @@ const Form = () => {
             {categoryExample.map((category) => (
               <li className='customized__select--option' key={category}>
                 <button
-                  className='list__item'
+                  className='option__button'
                   value={category}
                   onClick={selectCategory}>
                   {category}

@@ -15,26 +15,29 @@
 }
 
 .custom__select,
-.custom__select button {
+.custom__select .option__button,
+.trigger__open--text {
   border-radius: 6px;
 }
 
 .custom__select,
 .customized__select--container,
-.customized__select--container button {
+.customized__select--container .option__button,
+.trigger__open--text {
   background-color: #ffffff;
   width: 100%;
 }
 
 .custom__select,
 .custom__select .custom__select--trigger,
-.customized__select--container button {
+.customized__select--container .option__button,
+.trigger__open--text {
   padding-left: 8px;
   padding-right: 8px;
 }
 
 .customized__select--container,
-.customized__select--container button,
+.customized__select--container .option__button,
 .open {
   display: block;
 }
@@ -43,11 +46,18 @@
   display: none;
 }
 
-.customized__select--container button {
-  border: none;
+.customized__select--container .option__button {
   padding-top: 16.35px;
   padding-bottom: 16.35px;
+}
+.customized__select--container .option__button,
+.trigger__open--text {
+  border: none;
   cursor: pointer;
+}
+
+.trigger__open--text {
+  background-color: unset;
 }
 
 .custom__select,
@@ -68,12 +78,13 @@
   justify-content: space-between;
 }
 
-.custom__select button:hover {
+.custom__select .option__button:hover {
   background-color: #e9e9e9;
   font-weight: 500;
 }
 
-.customized__select--option:last-of-type button {
+.customized__select--option:last-of-type .option__button,
+.trigger__open--text {
   margin-bottom: 13px;
 }
 
