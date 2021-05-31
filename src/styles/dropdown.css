@@ -5,7 +5,12 @@
 
 .custom__select {
   position: absolute;
+  z-index: 2;
   border: solid 2px #34394f;
+}
+
+.customized__select--option,
+.custom__select .option__button {
   color: #34394f;
 }
 
@@ -65,7 +70,8 @@
   max-width: 419px;
 }
 
-.open__trigger .trigger__open--text {
+.open__trigger .trigger__open--text,
+.option__selected {
   color: #c4c4c4;
 }
 
@@ -93,7 +99,6 @@
 
 .option__selected {
   border: solid 2px #c4c4c4;
-  color: #c4c4c4;
 }
 
 svg {

@@ -13,7 +13,7 @@
   text-overflow: ellipsis;
 }
 
-.form__wrapper button,
+.form__wrapper,
 .form__wrapper input {
   color: #34394f;
 }
@@ -24,6 +24,14 @@
   color: #c4c4c4;
 }
 
+/* .impersonating__text {
+  position: absolute;
+  background: white;
+  font-size: 16px;
+  top: 10px;
+  display: block;
+} */
+
 .input__wrapper,
 .draw__joke--button {
   border-radius: 6px;
@@ -32,6 +40,7 @@
 
 .input__wrapper {
   display: flex;
+  position: relative;
   flex-direction: column;
   padding-left: 16px;
   padding-right: 16px;

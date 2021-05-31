@@ -16,7 +16,9 @@ const RandomJoke = () => {
       {isLoading ? (
         <h3>Loading...</h3>
       ) : (
-        <q className='joke'>{jokeData.joke}</q>
+        <q
+          className='joke'
+          dangerouslySetInnerHTML={{ __html: jokeData.joke }}></q>
       )}
     </>
   )
