@@ -6,6 +6,7 @@ const Form = () => {
     fetchJoke,
     firstName,
     lastName,
+    category,
     setFirstName,
     setLastName,
     setCategory,
@@ -45,31 +46,38 @@ const Form = () => {
 
   const selectCategory = (e: any) => {
     toggleDropDown()
-    setCategory(e.target.value && `limitTo=[${e.target.value}]`)
-    setTextToDislay(e.target.value)
+    const optionValue = e.target.value
+    const capitalizedFirstLetter =
+      optionValue.charAt(0).toUpperCase() + optionValue.slice(1)
+    setCategory(optionValue && `limitTo=[${optionValue}]`)
+    setTextToDislay(optionValue ? capitalizedFirstLetter : 'Category')
   }
 
   useEffect(() => {
     fetchingCategory()
   }, [])
 
-  const categoryExample = ['Nerdy', 'Explicit']
-
   return (
     <div className='form__wrapper'>
       <div className='customized__select--container'>
-        <div className='custom__select'>
+        <div
+          className={
+            category ? 'custom__select' : 'custom__select option__selected'
+          }>
           <div
             className={
               openDropDown
-                ? 'custom__select--trigger open__trigger'
+                ? 'custom__select--trigger open__trigger '
                 : 'custom__select--trigger closed__trigger'
             }
             onClick={toggleDropDown}>
             {!openDropDown ? (
               <div className='trigger__closed--text'>{textToDisplay}</div>
             ) : (
-              <button className='trigger__open--text' value=''>
+              <button
+                className='trigger__open--text'
+                onClick={selectCategory}
+                value=''>
                 Select category
               </button>
             )}
@@ -81,7 +89,7 @@ const Form = () => {
             className={
               openDropDown ? 'category__list open' : 'category__list closed'
             }>
-            {categoryExample.map((category) => (
+            {categoryList.map((category) => (
               <li className='customized__select--option' key={category}>
                 <button
                   className='option__button'

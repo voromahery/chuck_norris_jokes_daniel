@@ -13,7 +13,8 @@
   text-overflow: ellipsis;
 }
 
-.form__wrapper * {
+.form__wrapper button,
+.form__wrapper input {
   color: #34394f;
 }
 
