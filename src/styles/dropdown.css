@@ -88,7 +88,8 @@
   font-weight: 400;
 }
 
-.custom__select .option__button:hover {
+.custom__select .option__button:hover,
+.active__category {
   background-color: #e9e9e9;
   font-weight: 500;
 }

@@ -30,9 +30,10 @@ const GlobalContext: React.FC = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true)
   const [jokeData, setJokeData] = useState({})
   const [category, setCategory] = useState('')
-  const [firstName, setFirstName] = useState('Chuck')
-  const [lastName, setLastName] = useState('Norris')
-  const jokeUrl = `http://api.icndb.com/jokes/random?firstName=${firstName}&lastName=${lastName}&${category}`
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const nameQuery = firstName && `firstName=${firstName}&lastName=${lastName}`
+  const jokeUrl = `http://api.icndb.com/jokes/random?${nameQuery}&${category}`
 
   const fetchJoke = async () => {
     setIsLoading(true)

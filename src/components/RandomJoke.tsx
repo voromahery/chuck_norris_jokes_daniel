@@ -5,7 +5,8 @@ import randomPhoto from '../assets/random-photo.png'
 const RandomJoke = () => {
   const { jokeData, isLoading } = useContext(Context)
   const { firstName, lastName } = useContext(Context)
-  const imageToDisplay = firstName === 'Chuck' ? chuckNorrisPhoto : randomPhoto
+  const imageToDisplay =
+    firstName === 'Chuck' || firstName === '' ? chuckNorrisPhoto : randomPhoto
   return (
     <>
       <img

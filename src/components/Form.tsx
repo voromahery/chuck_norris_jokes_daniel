@@ -15,7 +15,7 @@ const Form = () => {
   const [changingName, setChangingName] = useState(`${firstName} ${lastName}`)
   const [categoryList, setCategoryList] = useState([])
   const [openDropDown, setOpenDropDown] = useState(false)
-  const [textToDisplay, setTextToDislay] = useState('Category')
+  const [textToDisplay, setTextToDislay] = useState('Categories')
 
   const getRandomJoke = () => {
     fetchJoke()
@@ -50,7 +50,7 @@ const Form = () => {
     const capitalizedFirstLetter =
       optionValue.charAt(0).toUpperCase() + optionValue.slice(1)
     setCategory(optionValue && `limitTo=[${optionValue}]`)
-    setTextToDislay(optionValue ? capitalizedFirstLetter : 'Category')
+    setTextToDislay(capitalizedFirstLetter)
   }
 
   useEffect(() => {
@@ -72,7 +72,9 @@ const Form = () => {
             }
             onClick={toggleDropDown}>
             {!openDropDown ? (
-              <div className='trigger__closed--text'>{textToDisplay}</div>
+              <div className='trigger__closed--text'>
+                {textToDisplay ? textToDisplay : 'Categories'}
+              </div>
             ) : (
               <button
                 className='trigger__open--text'
@@ -92,7 +94,11 @@ const Form = () => {
             {categoryList.map((category) => (
               <li className='customized__select--option' key={category}>
                 <button
-                  className='option__button'
+                  className={
+                    textToDisplay.toLowerCase() === category
+                      ? 'option__button active__category'
+                      : 'option__button'
+                  }
                   value={category}
                   onClick={selectCategory}>
                   {category}
@@ -103,18 +109,19 @@ const Form = () => {
         </div>
       </div>
       <div className='input__wrapper'>
-        <span className='impersonating__text'>
-          Impersonate {firstName} {lastName}
-        </span>
         <input
           type='text'
+          id='renaming'
           className='renaming__input'
           value={changingName}
           onChange={renaming}
         />
+        <label htmlFor='renaming' className='impersonating__text'>
+          Impersonate {firstName ? `${firstName} ${lastName}` : 'Chuck Norris'}
+        </label>
       </div>
       <button className='draw__joke--button' onClick={getRandomJoke}>
-        Draw a random {changingName} Joke
+        Draw a random {changingName.trim() ? changingName : 'Chuck Norris'} Joke
       </button>
     </div>
   )
