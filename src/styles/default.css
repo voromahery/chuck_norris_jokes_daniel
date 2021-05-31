@@ -16,6 +16,10 @@ body {
   height: 100vh;
 }
 
+label {
+  display: block;
+}
+
 .card * {
   font-size: 16px;
   line-height: 1.63;
