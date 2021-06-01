@@ -33,7 +33,7 @@ const GlobalContext: React.FC = ({ children }) => {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const nameQuery = firstName && `firstName=${firstName}&lastName=${lastName}`
-  const jokeUrl = `http://api.icndb.com/jokes/random?${nameQuery}&${category}`
+  const jokeUrl = `https://api.icndb.com/jokes/random?${nameQuery}&${category}`
 
   const fetchJoke = useCallback(async () => {
     setIsLoading(true)

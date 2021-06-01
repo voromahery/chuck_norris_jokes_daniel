@@ -12,7 +12,7 @@ const Form = () => {
     setCategory,
   } = useContext(Context)
 
-  const categoryUrl = `http://api.icndb.com/categories`
+  const categoryUrl = `https://api.icndb.com/categories`
   const [dynamicChangingName, setDynamicChangingName] = useState(
     firstName ? `${firstName} ${lastName}` : ''
   )

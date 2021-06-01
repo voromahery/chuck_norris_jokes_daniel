@@ -2,7 +2,7 @@
 
 <div align="center">
   <h3>
-    <a href="">
+    <a href="https://chuck-norris-joke-daniel.netlify.app/">
       Demo
     </a>
     <span> | </span>
@@ -29,7 +29,7 @@
 
 ![chuck-norris-screenshot](./public/screenshot.png)
 
-- Click this link to see my app [Chuck Norris Joke]() :
+- Click this link to see my app [Chuck Norris Joke](https://chuck-norris-joke-daniel.netlify.app/) :
 
 ## [Acknowledgements](#acknowledgements)
 

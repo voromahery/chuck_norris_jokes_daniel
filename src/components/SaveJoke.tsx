@@ -6,7 +6,7 @@ const NumberOfJokes = () => {
   const [counter, setCounter] = useState(0)
   const [jokeToPrint, setJokeToPrint] = useState([])
 
-  const multipleJokeUrl = `http://api.icndb.com/jokes/random/${counter}?firstName=${firstName}&lastName=${lastName}&${category}`
+  const JokeUrl = `http://api.icndb.com/jokes/random/${counter}?firstName=${firstName}&lastName=${lastName}&${category}`
 
   const increment = () => {
     setCounter(counter + 1)
@@ -22,10 +22,10 @@ const NumberOfJokes = () => {
   }
 
   const saveMultipleJoke = useCallback(async () => {
-    const response = await fetch(multipleJokeUrl)
+    const response = await fetch(JokeUrl)
     const data = await response.json()
     setJokeToPrint(data.value)
-  }, [multipleJokeUrl, setJokeToPrint])
+  }, [JokeUrl, setJokeToPrint])
 
   useEffect(() => {
     saveMultipleJoke()
