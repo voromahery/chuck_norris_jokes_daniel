@@ -1,7 +1,3 @@
-.character__image {
-  margin-bottom: 24px;
-}
-
 .card,
 .wrapper {
   margin: auto;
@@ -19,8 +15,14 @@
   padding-bottom: calc(72px / 2);
 }
 
-.wrapper {
+.wrapper,
+.character__image {
   max-width: 439px;
+}
+
+.character__image {
+  margin-bottom: 24px;
+  height: auto;
 }
 
 @media (min-width: 375px) {
