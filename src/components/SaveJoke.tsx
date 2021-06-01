@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { Context } from '../GlobalContext'
 
 const NumberOfJokes = () => {
@@ -21,15 +21,15 @@ const NumberOfJokes = () => {
     }
   }
 
-  const saveMultipleJoke = async () => {
+  const saveMultipleJoke = useCallback(async () => {
     const response = await fetch(multipleJokeUrl)
     const data = await response.json()
     setJokeToPrint(data.value)
-  }
+  }, [multipleJokeUrl, setJokeToPrint])
 
   useEffect(() => {
     saveMultipleJoke()
-  }, [counter, firstName, lastName])
+  }, [counter, firstName, lastName, saveMultipleJoke])
 
   let saveFile = () => {
     saveMultipleJoke()

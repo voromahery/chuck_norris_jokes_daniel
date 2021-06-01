@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useCallback, useEffect, useState } from 'react'
 
 interface JokeState {
   isLoading: boolean
@@ -35,17 +35,17 @@ const GlobalContext: React.FC = ({ children }) => {
   const nameQuery = firstName && `firstName=${firstName}&lastName=${lastName}`
   const jokeUrl = `http://api.icndb.com/jokes/random?${nameQuery}&${category}`
 
-  const fetchJoke = async () => {
+  const fetchJoke = useCallback(async () => {
     setIsLoading(true)
     const getJoke = await fetch(jokeUrl)
     const data = await getJoke.json()
     setJokeData(data.value)
     setIsLoading(false)
-  }
+  }, [jokeUrl])
 
   useEffect(() => {
     fetchJoke()
-  }, [firstName, lastName])
+  }, [firstName, lastName, fetchJoke])
 
   return (
     <Context.Provider
