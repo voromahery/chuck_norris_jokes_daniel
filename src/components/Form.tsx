@@ -12,7 +12,9 @@ const Form = () => {
     setCategory,
   } = useContext(Context)
   const categoryUrl = `http://api.icndb.com/categories`
-  const [changingName, setChangingName] = useState(`${firstName} ${lastName}`)
+  const [changingName, setChangingName] = useState(
+    firstName ? `${firstName} ${lastName}` : ''
+  )
   const [categoryList, setCategoryList] = useState([])
   const [openDropDown, setOpenDropDown] = useState(false)
   const [textToDisplay, setTextToDislay] = useState('Categories')
@@ -101,7 +103,7 @@ const Form = () => {
                   }
                   value={category}
                   onClick={selectCategory}>
-                  {category}
+                  {category === 'nerdy' ? 'Nerdy' : 'Explicit'}
                 </button>
               </li>
             ))}
@@ -121,7 +123,13 @@ const Form = () => {
         </label>
       </div>
       <button className='draw__joke--button' onClick={getRandomJoke}>
-        Draw a random {changingName.trim() ? changingName : 'Chuck Norris'} Joke
+        Draw a random{' '}
+        {changingName.trim()
+          ? changingName
+          : firstName
+          ? `${firstName} ${lastName}`
+          : 'Chuck Norris'}{' '}
+        Joke
       </button>
     </div>
   )

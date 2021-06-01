@@ -68,6 +68,7 @@
 .custom__select,
 .customized__select--container {
   max-width: 419px;
+  max-width: -webkit-fill-available;
 }
 
 .open__trigger .trigger__open--text,
