@@ -30,13 +30,41 @@ input[type='number'] {
 }
 
 .counter__button {
+  text-indent: -9999px;
+  display: block;
+  padding: 0;
   border-radius: 50%;
-  border: solid 1px #34394f;
   font-size: 16px;
   font-weight: 500;
   max-width: 24px;
   max-height: 24px;
   place-content: center;
+}
+
+#increment {
+  background-image: url('../assets/plus.svg');
+}
+
+#decrement {
+  background-image: url('../assets/minus.svg');
+}
+
+#increment,
+#decrement {
+  width: 24px;
+  height: 24px;
+  display: block;
+  background-repeat: no-repeat;
+}
+
+#increment:focus {
+  background-image: url('../assets/thick-plus.svg');
+}
+
+#decrement:focus {
+  background-image: url('../assets/thick-minus.svg');
+  background-size: 29px;
+  background-position: center;
 }
 
 .counter__button,

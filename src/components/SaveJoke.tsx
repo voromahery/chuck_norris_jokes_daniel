@@ -21,7 +21,7 @@ const NumberOfJokes = () => {
   } else if (counter === 0) {
     counterButton = 'counter__button'
   } else {
-    counterButton = 'counter__button active'
+    counterButton = 'counter__button'
   }
 
   const increment = () => {
@@ -78,7 +78,7 @@ const NumberOfJokes = () => {
   return (
     <div className='printer__wrapper'>
       <div className={counterWrapper}>
-        <button className={counterButton} onClick={decrement}>
+        <button className={counterButton} id='decrement' onClick={decrement}>
           -
         </button>
         <input
@@ -89,7 +89,7 @@ const NumberOfJokes = () => {
           onChange={(e: any) => setCounter(Number(e.target.value))}
           value={Number(counter)}
         />
-        <button className={counterButton} onClick={increment}>
+        <button className={counterButton} id='increment' onClick={increment}>
           +
         </button>
       </div>

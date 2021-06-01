@@ -7,6 +7,7 @@ const RandomJoke = () => {
   const { firstName, lastName } = useContext(Context)
   const imageToDisplay =
     firstName === 'Chuck' || firstName === '' ? chuckNorrisPhoto : randomPhoto
+
   return (
     <>
       <img
