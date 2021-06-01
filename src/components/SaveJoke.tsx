@@ -6,7 +6,9 @@ const NumberOfJokes = () => {
   const [counter, setCounter] = useState(0)
   const [jokeToPrint, setJokeToPrint] = useState([])
 
-  const JokeUrl = `https://api.icndb.com/jokes/random/${counter}?firstName=${firstName}&lastName=${lastName}&${category}`
+  const nameQuery = firstName && `firstName=${firstName}&lastName=${lastName}`
+
+  const JokeUrl = `https://api.icndb.com/jokes/random/${counter}?${nameQuery}&${category}`
 
   const increment = () => {
     setCounter(counter + 1)
