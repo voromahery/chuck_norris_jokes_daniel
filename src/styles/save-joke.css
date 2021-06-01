@@ -129,11 +129,15 @@ input[type='number'] {
   font-weight: 600;
   position: absolute;
   margin-top: 12px;
-  top: 50px;
+  top: 100px;
 }
 
 @media (min-width: 357px) {
   .printer__wrapper {
     flex-wrap: nowrap;
+  }
+
+  .error__message {
+    top: 50px;
   }
 }
