@@ -20,6 +20,12 @@
   max-width: 439px;
 }
 
+.loader {
+  color: #34394f;
+  max-width: 100px;
+  margin: auto;
+}
+
 .character__image {
   margin-bottom: 24px;
   height: auto;

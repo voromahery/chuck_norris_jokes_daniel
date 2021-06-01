@@ -16,7 +16,7 @@ const RandomJoke = () => {
         alt={firstName ? `${firstName} ${lastName}` : 'Chuck Norris'}
       />
       {isLoading ? (
-        <h3>Loading...</h3>
+        <h3 className='loader'>Loading...</h3>
       ) : (
         <q
           className='joke'
