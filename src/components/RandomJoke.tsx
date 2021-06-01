@@ -13,7 +13,7 @@ const RandomJoke = () => {
       <img
         className='character__image'
         src={imageToDisplay}
-        alt={`${firstName} ${lastName}`}
+        alt={firstName ? `${firstName} ${lastName}` : 'Chuck Norris'}
       />
       {isLoading ? (
         <h3>Loading...</h3>
