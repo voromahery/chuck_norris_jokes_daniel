@@ -17,9 +17,7 @@ const Form = () => {
     firstName ? `${firstName} ${lastName}` : ''
   )
 
-  const renamingCodition = firstName
-    ? `${firstName} ${lastName}`
-    : 'Chuck Norris'
+  const renamingCodition = firstName ? '' : 'Chuck Norris'
   const [categoryList, setCategoryList] = useState([])
   const [openDropDown, setOpenDropDown] = useState(false)
   const [textToDisplay, setTextToDislay] = useState('Categories')
@@ -79,6 +77,10 @@ const Form = () => {
     ? 'category__list open'
     : 'category__list closed'
 
+  const renamingInputClass = firstName
+    ? 'renaming__input active__input'
+    : 'renaming__input'
+
   return (
     <div className='form__wrapper'>
       <div className='customized__select--container'>
@@ -122,12 +124,12 @@ const Form = () => {
         <input
           type='text'
           id='renaming'
-          className='renaming__input'
+          className={renamingInputClass}
           value={dynamicChangingName}
           onChange={renamingCharacter}
         />
         <label htmlFor='renaming' className='impersonating__text'>
-          Impersonate {renamingCodition}
+          Impersonate Chuck Norris
         </label>
       </div>
       <button className='draw__joke--button' onClick={getRandomJokeByName}>

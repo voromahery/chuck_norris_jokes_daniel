@@ -31,18 +31,21 @@
   position: relative;
 }
 
-.renaming__input {
+.renaming__input,
+.active__input {
   width: calc(100% - 32px - 4px);
   border: solid 2px #c4c4c4;
 }
 
 .renaming__input,
 .renaming__input:focus,
+.active__input,
 .draw__joke--button {
   border-radius: 6px;
 }
 
 .renaming__input:focus,
+.active__input,
 .draw__joke--button {
   border: solid 2px #34394f;
 }
@@ -51,7 +54,8 @@
   color: #c4c4c4;
 }
 
-.renaming__input + .impersonating__text {
+.renaming__input + .impersonating__text,
+.active__input + .impersonating__text {
   position: absolute;
   display: block;
   top: 25%;
@@ -63,7 +67,8 @@
   font-size: 16px;
 }
 
-.renaming__input:focus + .impersonating__text {
+.renaming__input:focus + .impersonating__text,
+.active__input + .impersonating__text {
   font-size: 12px;
   line-height: 2.17;
   top: 0;
