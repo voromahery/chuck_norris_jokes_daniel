@@ -83,9 +83,6 @@ const NumberOfJokes = () => {
         <button className={counterButton} id='decrement' onClick={decrement}>
           -
         </button>
-        <label htmlFor='jokeCount' style={{ display: 'none' }}>
-          Joke Count
-        </label>
         <input
           type='number'
           name='jokeCount'
