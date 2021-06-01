@@ -8,22 +8,6 @@ const NumberOfJokes = () => {
 
   const multipleJokeUrl = `http://api.icndb.com/jokes/random/${counter}?firstName=${firstName}&lastName=${lastName}&${category}`
 
-  // Elements class
-  const counterWrapper =
-    counter > 100 ? 'counters__container error' : 'counters__container'
-
-  const counterInput =
-    counter > 100 ? 'joke__number--input error' : 'joke__number--input'
-
-  let counterButton = ''
-  if (counter > 100) {
-    counterButton = 'counter__button error'
-  } else if (counter === 0) {
-    counterButton = 'counter__button'
-  } else {
-    counterButton = 'counter__button'
-  }
-
   const increment = () => {
     setCounter(counter + 1)
   }
@@ -73,6 +57,22 @@ const NumberOfJokes = () => {
     }
 
     link.click()
+  }
+
+  // Elements class
+  const counterWrapper =
+    counter > 100 ? 'counters__container error' : 'counters__container'
+
+  const counterInput =
+    counter > 100 ? 'joke__number--input error' : 'joke__number--input'
+
+  let counterButton = ''
+  if (counter > 100) {
+    counterButton = 'counter__button error'
+  } else if (counter === 0) {
+    counterButton = 'counter__button'
+  } else {
+    counterButton = 'counter__button'
   }
 
   return (
