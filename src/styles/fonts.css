@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'myInter';
+  src: local('Inter Regular'), local('Inter_Regular'), local('dm-serif-regular');
+  src: url('../fonts/inter-regular.woff2');
+  src: url('../fonts/inter-regular.woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'myInter';
+  src: local('Inter Medium'), local('Inter_Medium');
+  src: url('../fonts/inter-medium.woff2');
+  src: url('../fonts/inter-medium.woff');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'myInter';
+  src: local('Inter SemiBold'), local('Inter_Semi_bold');
+  src: url('../fonts/inter-semibold.woff2');
+  src: url('../fonts/inter-semibold.woff');
+  font-weight: 600;
+}

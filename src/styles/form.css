@@ -1,11 +1,10 @@
 .form__wrapper {
   display: grid;
   grid-gap: 16px;
-  margin-top: 57px;
+  margin-top: 32px;
   margin-bottom: 52px;
 }
 
-/* .input__wrapper, */
 .renaming__input,
 .draw__joke--button {
   max-width: 439px;
@@ -18,18 +17,7 @@
   color: #34394f;
 }
 
-/* .impersonating__text {
-  position: absolute;
-  background: white;
-  font-size: 16px;
-  top: 10px;
-  display: block;
-} */
-
-/* .input__wrapper, */
-
-.renaming__input
-/* .input__wrapper */ {
+.renaming__input {
   display: flex;
   position: relative;
   flex-direction: column;
