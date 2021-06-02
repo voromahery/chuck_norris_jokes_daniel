@@ -98,7 +98,7 @@ const NumberOfJokes = () => {
       <button
         className='save__button'
         onClick={saveFile}
-        disabled={counter === 0}>
+        disabled={counter === 0 || counter > 100}>
         Save Jokes
       </button>
       {counter > 100 && (
