@@ -107,11 +107,7 @@ const Form = () => {
             {categoryList.map((category) => (
               <li className='customized__select--option' key={category}>
                 <button
-                  className={
-                    textToDisplay.toLowerCase() === category
-                      ? 'option__button active__category'
-                      : 'option__button'
-                  }
+                  className='option__button'
                   value={category}
                   onClick={selectCategory}>
                   {category === 'nerdy' ? 'Nerdy' : 'Explicit'}
