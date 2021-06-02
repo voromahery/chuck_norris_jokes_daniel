@@ -6,7 +6,11 @@ const RandomJoke = () => {
   const { jokeData, isLoading } = useContext(Context)
   const { firstName, lastName } = useContext(Context)
   const imageToDisplay =
-    firstName === 'Chuck' || firstName === '' ? chuckNorrisPhoto : randomPhoto
+    (firstName.toLowerCase() === 'chuck' &&
+      lastName.toLowerCase() === 'norris') ||
+    firstName === ''
+      ? chuckNorrisPhoto
+      : randomPhoto
 
   return (
     <>
