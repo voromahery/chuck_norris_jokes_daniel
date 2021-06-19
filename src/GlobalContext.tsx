@@ -9,10 +9,12 @@ interface JokeState {
   setLastName: React.Dispatch<React.SetStateAction<string>>
   fetchJoke: any
   category: string
+  baseUrl: string
   setCategory: React.Dispatch<React.SetStateAction<string>>
 }
 
 let initialState: JokeState = {
+  baseUrl: '',
   isLoading: true,
   jokeData: {},
   firstName: '',
@@ -32,8 +34,9 @@ const GlobalContext: React.FC = ({ children }) => {
   const [category, setCategory] = useState('')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
+  const baseUrl = 'https://api.icndb.com/'
   const nameQuery = firstName && `firstName=${firstName}&lastName=${lastName}`
-  const jokeUrl = `https://api.icndb.com/jokes/random?${nameQuery}&${category}`
+  const jokeUrl = `${baseUrl}jokes/random?${nameQuery}&${category}`
 
   const fetchJoke = useCallback(async () => {
     setIsLoading(true)
@@ -50,6 +53,7 @@ const GlobalContext: React.FC = ({ children }) => {
   return (
     <Context.Provider
       value={{
+        baseUrl,
         jokeData,
         isLoading,
         firstName,

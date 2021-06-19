@@ -7,12 +7,13 @@ const Form = () => {
     firstName,
     lastName,
     category,
+    baseUrl,
     setFirstName,
     setLastName,
     setCategory,
   } = useContext(Context)
 
-  const categoryUrl = `https://api.icndb.com/categories`
+  const categoryUrl = `${baseUrl}/categories`
   const [dynamicChangingName, setDynamicChangingName] = useState(
     firstName ? `${firstName} ${lastName}` : ''
   )
@@ -104,13 +105,13 @@ const Form = () => {
             </svg>
           </div>
           <ul className={triggerCategoryClass}>
-            {categoryList.map((category) => (
+            {categoryList.map((category: string) => (
               <li className='customized__select--option' key={category}>
                 <button
                   className='option__button'
                   value={category}
                   onClick={selectCategory}>
-                  {category === 'nerdy' ? 'Nerdy' : 'Explicit'}
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
                 </button>
               </li>
             ))}

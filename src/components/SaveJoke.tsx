@@ -2,13 +2,13 @@ import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { Context } from '../GlobalContext'
 
 const NumberOfJokes = () => {
-  const { firstName, lastName, category } = useContext(Context)
+  const { firstName, lastName, category, baseUrl } = useContext(Context)
   const [counter, setCounter] = useState(0)
   const [jokeToPrint, setJokeToPrint] = useState([])
 
   const nameQuery = firstName && `firstName=${firstName}&lastName=${lastName}`
 
-  const JokeUrl = `https://api.icndb.com/jokes/random/${counter}?${nameQuery}&${category}`
+  const JokeUrl = `${baseUrl}jokes/random/${counter}?${nameQuery}&${category}`
 
   const increment = () => {
     setCounter(counter + 1)
