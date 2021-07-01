@@ -97,7 +97,7 @@ const NumberOfJokes = () => {
       </div>
       <button
         className='save__button'
-        onClick={saveFile}
+        onClick={() => setTimeout(() => saveFile(), 3000)}
         disabled={counter === 0 || counter > 100}>
         Save Jokes
       </button>

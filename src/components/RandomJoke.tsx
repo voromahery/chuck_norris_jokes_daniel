@@ -3,7 +3,8 @@ import { Context } from '../GlobalContext'
 import chuckNorrisPhoto from '../assets/chuck-norris-photo.webp'
 import randomPhoto from '../assets/random-photo.webp'
 const RandomJoke = () => {
-  const { jokeData, isLoading, firstName, lastName } = useContext(Context)
+  const { jokeData, isLoading } = useContext(Context)
+  const { firstName, lastName } = useContext(Context)
   const imageToDisplay =
     (firstName.toLowerCase() === 'chuck' &&
       lastName.toLowerCase() === 'norris') ||
