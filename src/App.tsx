@@ -1,10 +1,17 @@
 import React from 'react'
-import Card from './components/Card'
-
+import RandomJoke from './components/RandomJoke'
+import SaveJoke from './components/SaveJoke'
+import Form from './components/Form'
 function App() {
   return (
     <div className='App'>
-      <Card />
+      <div className='card'>
+        <div className='wrapper'>
+          <RandomJoke />
+          <Form />
+          <SaveJoke />
+        </div>
+      </div>
     </div>
   )
 }

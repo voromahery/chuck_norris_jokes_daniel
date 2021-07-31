@@ -94,14 +94,16 @@ const NumberOfJokes = () => {
         <button className={counterButton} id='decrement' onClick={decrement}>
           -
         </button>
-        <input
-          type='number'
-          name='jokeCount'
-          min='0'
-          className={counterInput}
-          onChange={(e: any) => setCounter(Number(e.target.value))}
-          value={Number(counter)}
-        />
+        <label htmlFor='jokeCount'>
+          <input
+            type='number'
+            name='jokeCount'
+            min='0'
+            className={counterInput}
+            onChange={(e: any) => setCounter(Number(e.target.value))}
+            value={Number(counter)}
+          />
+        </label>
         <button className={counterButton} id='increment' onClick={increment}>
           +
         </button>
