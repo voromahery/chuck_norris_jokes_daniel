@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Context } from '../GlobalContext'
 
 const Form = () => {
@@ -7,27 +7,19 @@ const Form = () => {
     firstName,
     lastName,
     category,
-    baseUrl,
     setFirstName,
     setLastName,
     setCategory,
   } = useContext(Context)
 
-  const categoryUrl = `${baseUrl}/categories`
   const [dynamicChangingName, setDynamicChangingName] = useState(
     firstName ? `${firstName} ${lastName}` : ''
   )
 
   const renamingCodition = firstName ? '' : 'Chuck Norris'
-  const [categoryList, setCategoryList] = useState([])
+  const categoryList = ['nerdy', 'animal', 'food', 'music']
   const [openDropDown, setOpenDropDown] = useState(false)
   const [textToDisplay, setTextToDislay] = useState('Categories')
-
-  const fetchingJokeCategory = async () => {
-    const response = await fetch(categoryUrl)
-    const data = await response.json()
-    setCategoryList(data.value)
-  }
 
   const getRandomJokeByName = () => {
     fetchJoke()
@@ -57,14 +49,9 @@ const Form = () => {
     // Change the first character of the category into capital
     const capitalizedFirstLetter =
       optionValue.charAt(0).toUpperCase() + optionValue.slice(1)
-    setCategory(optionValue && `limitTo=[${optionValue}]`)
+    setCategory(optionValue)
     setTextToDislay(capitalizedFirstLetter)
   }
-
-  useEffect(() => {
-    fetchingJokeCategory()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   // Class conditions
   const customSelectTriggerClass = openDropDown

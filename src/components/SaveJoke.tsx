@@ -1,14 +1,12 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { Context } from '../GlobalContext'
+import { jokesArray } from '../jokesData'
 
 const NumberOfJokes = () => {
-  const { firstName, lastName, category, baseUrl } = useContext(Context)
+  const { firstName, lastName, category, setIsLoading, isLoading } =
+    useContext(Context)
   const [counter, setCounter] = useState(0)
-  const [jokeToPrint, setJokeToPrint] = useState([])
-
-  const nameQuery = firstName && `firstName=${firstName}&lastName=${lastName}`
-
-  const JokeUrl = `${baseUrl}jokes/random/${counter}?${nameQuery}&${category}`
+  const [jokesToPrint, setJokesToPrint] = useState([])
 
   const increment = () => {
     setCounter(counter + 1)
@@ -23,42 +21,55 @@ const NumberOfJokes = () => {
     }
   }
 
+  let newJokes: any = [...jokesArray].filter(
+    (joke) =>
+      joke.category === category.toLowerCase() || joke.category === category
+  )
+
+  newJokes.length = counter
   const saveMultipleJoke = useCallback(async () => {
-    const response = await fetch(JokeUrl)
-    const data = await response.json()
-    setJokeToPrint(data.value)
-  }, [JokeUrl, setJokeToPrint])
+    setJokesToPrint(newJokes)
+
+    // eslint-disable-next-line
+  }, [setJokesToPrint, counter])
 
   useEffect(() => {
     saveMultipleJoke()
-  }, [counter, firstName, lastName, saveMultipleJoke])
+  }, [counter, firstName, lastName, category, saveMultipleJoke])
 
   let saveFile = () => {
-    saveMultipleJoke()
+    setIsLoading(true)
+    setTimeout(() => {
+      saveMultipleJoke()
 
-    // Get the joke in the jokeToPrint
-    const item = jokeToPrint.map(
-      (joke: { id: number; joke: string; categories: string[] }) =>
-        '-' + joke.joke + '\r\n'
-    )
-    const textToPrint = item
+      // Get the joke in the jokesToPrint
+      const item = jokesToPrint.map(
+        (joke: {
+          joke: string
+          categories: string[]
+          firstName: string
+          lastName: string
+        }) => '-' + joke.joke + '\r\n'
+      )
+      const textToPrint = item
 
-    // Convert the text in the joke into BLOB
-    const ConvertIntoBLOB = new Blob(textToPrint, { type: 'text/plain' })
-    const defaultFileName = 'savedjoke.txt'
+      // Convert the text in the joke into BLOB
+      const ConvertIntoBLOB = new Blob(textToPrint, { type: 'text/plain' })
+      const defaultFileName = 'savedjoke.txt'
 
-    let link = document.createElement('a')
-    link.download = defaultFileName
+      let link = document.createElement('a')
+      link.download = defaultFileName
 
-    if (window.webkitURL !== null) {
-      link.href = window.webkitURL.createObjectURL(ConvertIntoBLOB)
-    } else {
-      link.href = window.URL.createObjectURL(ConvertIntoBLOB)
-      link.style.display = 'none'
-      document.body.appendChild(link)
-    }
-
-    link.click()
+      if (window.webkitURL !== null) {
+        link.href = window.webkitURL.createObjectURL(ConvertIntoBLOB)
+      } else {
+        link.href = window.URL.createObjectURL(ConvertIntoBLOB)
+        link.style.display = 'none'
+        document.body.appendChild(link)
+      }
+      setIsLoading(false)
+      link.click()
+    }, 3000)
   }
 
   // Elements class
@@ -97,9 +108,9 @@ const NumberOfJokes = () => {
       </div>
       <button
         className='save__button'
-        onClick={() => setTimeout(() => saveFile(), 3000)}
+        onClick={saveFile}
         disabled={counter === 0 || counter > 100}>
-        Save Jokes
+        {isLoading ? 'Loading...' : 'Save Jokes'}
       </button>
       {counter > 100 && (
         <p className='error__message'>You can pick a number from 1 to 100.</p>
