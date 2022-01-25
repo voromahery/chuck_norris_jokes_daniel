@@ -29,7 +29,6 @@
 
 ![chuck-norris-screenshot](./public/screenshot.png)
 
-- Click this link to see my app [Chuck Norris Joke](https://chuck-norris-joke-daniel.netlify.app/) :
 
 ## [Acknowledgements](#acknowledgements)
 
