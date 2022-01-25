@@ -35,7 +35,7 @@
 
 This single page application displays a random Chuck Norris Joke. Chuck Norris can be impersonated by using the input. The select is used to display a random joke depending on the selected category.
 
-the counter is created in order to print multiple jokes.
+The counter is created in order to print multiple jokes.
 
 ## [Built With](#built-with)
 
